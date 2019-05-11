@@ -24,10 +24,10 @@ ch.setFormatter(formatter)
 logger.addHandler(fh)
 logger.addHandler(ch)
 
-file = r'/Users/chwu/Projects/tmp/ez/all.xlsx'
+file = r'/Users/chwu/Projects/tmp/ez/all.xls'
 df = pd.read_excel(file, encoding='utf-8')
 
-file = r'/Users/chwu/Projects/tmp/ez/has_id.xlsx'
+file = r'/Users/chwu/Projects/tmp/ez/has_id.xls'
 df_has_id = pd.read_excel(file, encoding='utf-8')
 # df = df[df['身份证状态'] != '身份证未上传']
 # indexNames = df[ df['ID_STATUS'] == '身份证未上传' ].index
