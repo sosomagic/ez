@@ -24,10 +24,10 @@ ch.setFormatter(formatter)
 logger.addHandler(fh)
 logger.addHandler(ch)
 
-file = r'/Users/chwu/Projects/tmp/ez/all.xls'
+file = r'/tmp/all.xls'
 df = pd.read_excel(file, encoding='utf-8')
 
-file = r'/Users/chwu/Projects/tmp/ez/has_id.xls'
+file = r'/tmp/has_id.xls'
 df_has_id = pd.read_excel(file, encoding='utf-8')
 # df = df[df['身份证状态'] != '身份证未上传']
 # indexNames = df[ df['ID_STATUS'] == '身份证未上传' ].index
@@ -47,7 +47,7 @@ df_no_sending = pd.concat([df,df_sending]).drop_duplicates(keep=False)
 # df1.to_excel("sending.xlsx")
 # df2.to_excel("not_sending.xlsx")
 
-writer = pd.ExcelWriter("sending.xlsx", engine='xlsxwriter')
+writer = pd.ExcelWriter("/tmp/sending.xlsx", engine='xlsxwriter')
 df_sending.to_excel(writer, sheet_name='Sheet1')
 workbook  = writer.book
 worksheet = writer.sheets['Sheet1']
@@ -56,7 +56,7 @@ worksheet.set_column('B:B', 18, format1)
 worksheet.set_column('M:M', 18, format1)
 writer.save()
 
-writer = pd.ExcelWriter("not_sending.xlsx", engine='xlsxwriter')
+writer = pd.ExcelWriter("/tmp/not_sending.xlsx", engine='xlsxwriter')
 df_no_sending.to_excel(writer, sheet_name='Sheet1')
 workbook  = writer.book
 worksheet = writer.sheets['Sheet1']
